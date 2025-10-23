@@ -1,15 +1,16 @@
-import { useState } from "react";
 import Navbar from "./components/navbar";
+import Content from "./components/content";
+import { useState } from "react";
+import Sidebar from "./components/sidebar";
 
 function App() {
-  const [postCount, setPostCount] = useState<number>(0);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
-    <div className="flex flex-col w-40 ">
-      <Navbar />
-      <main className="flex flex-col min-w-screen items-center max-w-[70vw] mt-10">
-        <h1 className="text-5xl italic font-bold">Blog</h1>
-        <div className="font-bold mt-8">{postCount} Posts</div>
-      </main>
+    <div className="flex flex-col items-center">
+      {isOpen && <Sidebar setIsOpen={setIsOpen} />}
+      <Navbar setIsOpen={setIsOpen} />
+      <Content />
     </div>
   );
 }

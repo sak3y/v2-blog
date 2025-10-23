@@ -1,40 +1,16 @@
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
+type PostObject = {
+  title: string;
+  date: string;
+  description: string;
+};
 
-const Post = () => {
-  const [title, setTitle] = useState<string>("");
-
-  const currDate = new Date();
-  const [date, setDate] = useState<string>(currDate.toISOString());
-
-  const [content, setContent] = useState<string>("");
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await fetch("");
-
-        if (!res.ok) {
-          console.log(res.status);
-          return;
-        }
-
-        const data = res.json;
-
-        console.log(data);
-      } catch (e) {
-        console.error(e);
-      }
-    };
-  }, []);
+const Post: React.FC<PostObject> = ({ title, date, description }) => {
 
   return (
-    <article>
-      <h2>
-        <Link>{title}</Link>
-      </h2>
+    <article className="flex flex-col gap-4 p-4">
+      <h2 className="text-4xl text-purple-800 tracking-tighter">{title}</h2>
       <div>{date}</div>
-      <p>{content}</p>
+      <p>{description}</p>
     </article>
   );
 };

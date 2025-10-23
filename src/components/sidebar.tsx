@@ -1,0 +1,32 @@
+import { IoMdClose } from "react-icons/io";
+
+type MenuProp = {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const Sidebar: React.FC<MenuProp> = ({ setIsOpen }) => {
+  return (
+    <aside className="absolute left-0 top-0 z-10 w-40 bg-blue-400 h-screen">
+      <div className="relative">
+        {/* Close Menu Button */}
+        <button
+          className="m-2"
+          onClick={() => {
+            setIsOpen(false);
+          }}
+        >
+          <IoMdClose size={20}/>
+        </button>
+
+        {/* Links */}
+        <div className="flex flex-col items-center">
+          <a href="/">About</a>
+          <a href="/">Blog</a>
+          <a href="/">Contact</a>
+        </div>
+      </div>
+    </aside>
+  );
+};
+
+export default Sidebar;
