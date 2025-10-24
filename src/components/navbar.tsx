@@ -10,10 +10,8 @@ type MenuProp = {
 const Navbar: React.FC<MenuProp> = ({ setIsOpen }) => {
   const toggleDark = () => {};
 
-
-
   return (
-    <header className="flex min-w-screen justify-center p-3 border-b-1 border-neutral-300">
+    <header className="fixed z-5 bg-white opacity-99 flex min-w-screen justify-center p-3 border-b-1 border-neutral-300">
       <nav className="flex min-w-[80vw] justify-between text-lg">
         {/* Nav left */}
         <div className="flex items-center">

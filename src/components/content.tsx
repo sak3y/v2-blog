@@ -1,9 +1,11 @@
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase" 
 import { useEffect, useState } from "react";
 import Post from "./post";
 
 type PostProp = {
   title: string;
-  date: string;
+  dateMade: string;
   description: string;
 };
 
@@ -11,8 +13,24 @@ const Content = () => {
   const [posts, setPosts] = useState<PostProp[]>([]);
 
   useEffect(() => {
-    const fetchPosts = async () => {};
-    // write fetch to firebase
+    // Fetch data from firestore db
+    const fetchPosts = async () => {
+      const querySnapshot = await getDocs(collection(db, "posts")); // Get posts from db
+      querySnapshot.forEach((doc) => {
+    
+        
+        setPosts((prevPosts) => [
+          ...prevPosts,
+          {
+            title: doc.data().title,
+            dateMade: doc.data().dateMade,
+            description: doc.data().description,
+          },
+        ]);
+
+      });
+    };
+
     fetchPosts();
   }, []);
 
@@ -30,7 +48,7 @@ const Content = () => {
           <Post
             key={post.title}
             title={post.title}
-            date={post.date}
+            dateMade={post.dateMade}
             description={post.description}
           />
         ))}
