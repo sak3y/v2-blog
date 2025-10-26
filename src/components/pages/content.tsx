@@ -18,6 +18,7 @@ const Content = () => {
     const fetchPosts = async () => {
       const querySnapshot = await getDocs(collection(db, "posts")); // Get posts from db
 
+      // Spread firebase post fields into fetchedposts
       const fetchedPosts = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -31,7 +32,7 @@ const Content = () => {
 
   return (
     <div className={"flex flex-col items-center"}>
-      <header className="font-bold my-15 text-center">
+      <header className="font-bold my-20 text-center">
         <h1 className="text-5xl ">Blog</h1>
         <div className="mt-4 ">{posts.length} Posts</div>
       </header>

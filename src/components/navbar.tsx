@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiMenu } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
@@ -13,10 +13,14 @@ type NavProps = {
 const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
   return (
     <header
       className={
-        "fixed z-3 bg-white flex min-w-screen justify-center p-3 border-b-1 border-neutral-300"
+        "fixed z-3 bg-white dark:bg-neutral-800 flex min-w-screen justify-center p-3 border-b-1 border-neutral-300"
       }
     >
       <nav className="flex min-w-[80vw] justify-between text-lg">

@@ -9,25 +9,26 @@ import About from "./components/pages/about";
 import Contact from "./components/pages/contact";
 
 function App() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [darkMode, setDarkMode] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false); // Sidebar state
+  const [darkMode, setDarkMode] = useState<boolean>(false); // Dark theme toggle
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center dark:text-white dark:bg-neutral-800">
+      {isOpen && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
+      {/* dark bg overlay on out of focus */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black opacity-20 z-4 min-h-screen"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+      <Navbar setIsOpen={setIsOpen} darkMode={darkMode} setDarkMode={setDarkMode} />
+
       <Routes>
         <Route path="/" element={<Content />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-
-      {isOpen && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black opacity-15 z-4 min-h-screen"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-      <Navbar setIsOpen={setIsOpen} darkMode={darkMode} setDarkMode={setDarkMode} />
     </div>
   );
 }

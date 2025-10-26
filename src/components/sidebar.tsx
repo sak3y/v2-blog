@@ -8,7 +8,7 @@ type MenuProp = {
 
 const Sidebar: React.FC<MenuProp> = ({ setIsOpen }) => {
   return (
-    <aside className="fixed left-0 top-0 z-5 w-[30vw] bg-blue-400 h-screen">
+    <aside className="fixed left-0 top-0 z-5 w-[30vw] bg-blue-400 dark:bg-emerald-900 h-screen">
       <div className="relative">
         {/* Close Menu Button */}
         <button

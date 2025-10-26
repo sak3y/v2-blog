@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
+  --card-bg: #f3f3f3;
+  --card-text: #111111;
+}
+
+.dark {
+  --bg-color: #111111;
+  --text-color: #f3f3f3;
+  --card-bg: #1f1f1f;
+  --card-text: #eeeeee;
+}
+
+
 body {
   font-family: '"EB Garamond"', "serif";
 }
