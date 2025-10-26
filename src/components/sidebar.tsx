@@ -23,15 +23,15 @@ const Sidebar: React.FC<MenuProp> = ({ setIsOpen }) => {
         {/* Links */}
         <div className="flex flex-col items-center">
           {/* Home page */}
-          <Link to="/" tabIndex={1}>
+          <Link to="/" tabIndex={0}>
             Blog
           </Link>
           {/* About page  */}
-          <Link to="/about" tabIndex={2}>
+          <Link to="/about" tabIndex={0}>
             About
           </Link>
           {/* Contacts page */}
-          <Link to="/contact" tabIndex={3}>
+          <Link to="/contact" tabIndex={0}>
             Contacts
           </Link>
         </div>

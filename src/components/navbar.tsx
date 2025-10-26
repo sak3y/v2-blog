@@ -20,7 +20,7 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
   return (
     <header
       className={
-        "fixed z-3 bg-white dark:bg-neutral-800 flex min-w-screen justify-center p-3 border-b-1 border-neutral-300"
+        "fixed z-3 bg-white dark:bg-neutral-800 flex min-w-screen justify-center p-3 border-b-1 border-neutral-300 dark:border-neutral-600"
       }
     >
       <nav className="flex min-w-[80vw] justify-between text-lg">
