@@ -32,12 +32,12 @@ const Content = () => {
 
   return (
     <div className={"flex flex-col items-center"}>
-      <header className="font-bold my-20 text-center">
-        <h1 className="text-5xl ">Blog</h1>
-        <div className="mt-4 ">{posts.length} Posts</div>
+      <header className="font-bold mt-30 mb-10 text-center">
+        <h1 className="text-5xl tracking-tight">Blog</h1>
+        <div className="text-xl mt-6">{posts.length} Posts</div>
       </header>
 
-      <div className="max-w-[70vw]">
+      <div className="max-w-[80vw] sm:max-w-[50vw]">
         {posts.map((post) => (
           <Post
             key={post.id}

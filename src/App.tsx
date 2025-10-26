@@ -21,7 +21,7 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="flex flex-col items-center min-h-screen dark:text-white dark:bg-neutral-800">
+    <div className="flex flex-col items-center min-h-screen dark:text-zinc-50 dark:bg-zinc-900">
       {isOpen && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
       {/* dark bg overlay on out of focus */}
       {isOpen && (

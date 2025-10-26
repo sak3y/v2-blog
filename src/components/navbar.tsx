@@ -11,16 +11,22 @@ type NavProps = {
 };
 
 const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
+  const [input, setInput] = useState<string>("");
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
+  // Toggle dark theme
   useEffect(() => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
+  const handleSearch = () => {};
+
+  handleSearch();
+
   return (
     <header
       className={
-        "fixed z-3 bg-white dark:bg-neutral-800 flex min-w-screen justify-center p-3 border-b-1 border-neutral-300 dark:border-neutral-600"
+        "fixed z-3 bg-white dark:bg-zinc-900 flex min-w-screen justify-center p-3 border-b-1 border-zinc-300 dark:border-zinc-700"
       }
     >
       <nav className="flex min-w-[80vw] justify-between text-lg">
@@ -36,8 +42,8 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
         </div>
 
         {/* Nav right */}
-        <ul className="flex items-center gap-4">
-          <li className="relative flex items-center ml-2">
+        <ul className="flex items-center gap-4 h-8">
+          <li className="relative flex items-center gap-2">
             {/* Search button */}
             <button onClick={() => setIsSearching((prev) => !prev)} className="">
               <IoIosSearch />
@@ -50,7 +56,12 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
                 placeholder="Search..."
                 autoFocus
                 autoComplete="off"
-                className="text-sm px-4 border-1"
+                value={input}
+                onChange={(e) => {
+                  setInput(e.target.value);
+                  console.log(input);
+                }}
+                className="text-sm font-sans px-1 border-1 focus:rounded-bl-none outline-0"
               />
             )}
           </li>

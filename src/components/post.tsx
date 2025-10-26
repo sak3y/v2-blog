@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 type PostObject = {
   title: string;
   dateMade: string;
@@ -6,12 +8,15 @@ type PostObject = {
 
 const Post: React.FC<PostObject> = ({ title, dateMade, description }) => {
   return (
-    <article className="flex flex-col gap-4 p-4">
-      <h2 className="text-4xl text-purple-800 dark:text-purple-500 tracking-tighter">
-        <a href="/">{title}</a>
+    <article className="flex flex-col p-4">
+      {/* Post title */}
+      <h2 className="tracking-tighter text-4xl text-fuchsia-800 dark:text-violet-500">
+        <Link to={`post/${title}`}>{title}</Link>
       </h2>
-      <div>{dateMade}</div>
-      <p className="text-neutral-700 dark:text-neutral-200 line-clamp-3">{description}</p>
+      {/* // Date post was made */}
+      <div className="tracking-tight text-lg font-semibold scale-y-110 mt-2 mb-4">{dateMade}</div>
+      {/* Short description */}
+      <p className="line-clamp-3 text-lg leading-tight ">{description}</p>
     </article>
   );
 };
