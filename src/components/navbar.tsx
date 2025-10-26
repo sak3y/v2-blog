@@ -1,17 +1,24 @@
-import { FaLinkedin } from "react-icons/fa";
-import { FiGithub, FiMenu } from "react-icons/fi";
+import { useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FiMenu } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
-import { MdDarkMode } from "react-icons/md";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
-type MenuProp = {
+type NavProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  darkMode: boolean;
+  setDarkMode: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Navbar: React.FC<MenuProp> = ({ setIsOpen }) => {
-  const toggleDark = () => {};
+const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
+  const [isSearching, setIsSearching] = useState<boolean>(false);
 
   return (
-    <header className="fixed z-5 bg-white opacity-99 flex min-w-screen justify-center p-3 border-b-1 border-neutral-300">
+    <header
+      className={
+        "fixed z-3 bg-white flex min-w-screen justify-center p-3 border-b-1 border-neutral-300"
+      }
+    >
       <nav className="flex min-w-[80vw] justify-between text-lg">
         {/* Nav left */}
         <div className="flex items-center">
@@ -26,10 +33,22 @@ const Navbar: React.FC<MenuProp> = ({ setIsOpen }) => {
 
         {/* Nav right */}
         <ul className="flex items-center gap-4">
-          <li>
-            <button onClick={() => {}}>
+          <li className="relative flex items-center ml-2">
+            {/* Search button */}
+            <button onClick={() => setIsSearching((prev) => !prev)} className="">
               <IoIosSearch />
             </button>
+            {/* Input element */}
+            {isSearching && (
+              <input
+                name="search"
+                type="text"
+                placeholder="Search..."
+                autoFocus
+                autoComplete="off"
+                className="text-sm px-4 border-1"
+              />
+            )}
           </li>
           <li>
             <a target="_blank" href="https://www.linkedin.com/in/sheikh-rayhan-ahmed">
@@ -38,12 +57,12 @@ const Navbar: React.FC<MenuProp> = ({ setIsOpen }) => {
           </li>
           <li>
             <a target="_blank" href="https://github.com/sak3y?tab=repositories">
-              <FiGithub />
+              <FaGithub />
             </a>
           </li>
           <li>
-            <button onClick={toggleDark}>
-              <MdDarkMode />
+            <button onClick={() => setDarkMode((prev) => !prev)}>
+              {darkMode ? <MdLightMode /> : <MdDarkMode />}
             </button>
           </li>
         </ul>

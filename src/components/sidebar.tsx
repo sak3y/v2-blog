@@ -1,12 +1,14 @@
 import { IoMdClose } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 type MenuProp = {
+  isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const Sidebar: React.FC<MenuProp> = ({ setIsOpen }) => {
   return (
-    <aside className="fixed left-0 top-0 z-10 w-[30vw] bg-blue-400 h-screen">
+    <aside className="fixed left-0 top-0 z-5 w-[30vw] bg-blue-400 h-screen">
       <div className="relative">
         {/* Close Menu Button */}
         <button
@@ -15,14 +17,23 @@ const Sidebar: React.FC<MenuProp> = ({ setIsOpen }) => {
             setIsOpen(false);
           }}
         >
-          <IoMdClose size={20}/>
+          <IoMdClose size={20} />
         </button>
 
         {/* Links */}
         <div className="flex flex-col items-center">
-          <a href="/">About</a>
-          <a href="/">Blog</a>
-          <a href="/">Contact</a>
+          {/* Home page */}
+          <Link to="/" tabIndex={1}>
+            Blog
+          </Link>
+          {/* About page  */}
+          <Link to="/about" tabIndex={2}>
+            About
+          </Link>
+          {/* Contacts page */}
+          <Link to="/contact" tabIndex={3}>
+            Contacts
+          </Link>
         </div>
       </div>
     </aside>
