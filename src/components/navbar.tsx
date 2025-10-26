@@ -59,9 +59,8 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
                 value={input}
                 onChange={(e) => {
                   setInput(e.target.value);
-                  console.log(input);
                 }}
-                className="text-sm font-sans px-1 border-1 focus:rounded-bl-none outline-0"
+                className="text-sm font-sans w-25 sm:w-50 px-1 border-1 focus:rounded-bl-none outline-0"
               />
             )}
           </li>

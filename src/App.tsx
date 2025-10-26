@@ -4,9 +4,10 @@ import Sidebar from "./components/sidebar";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import Content from "./components/pages/content";
-import About from "./components/pages/about";
-import Contact from "./components/pages/contact";
+import Content from "./pages/content";
+import About from "./pages/about";
+import Contact from "./pages/contact";
+import { PostsProvider } from "./context/postsContext";
 
 function App() {
   const [isOpen, setIsOpen] = useState<boolean>(false); // Sidebar state
@@ -21,7 +22,7 @@ function App() {
   }, [darkMode]);
 
   return (
-    <div className="flex flex-col items-center min-h-screen dark:text-zinc-50 dark:bg-zinc-900">
+    <div className="flex flex-col font-[Merriweather] items-center min-h-screen dark:text-zinc-50 dark:bg-zinc-900">
       {isOpen && <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />}
       {/* dark bg overlay on out of focus */}
       {isOpen && (
@@ -32,11 +33,13 @@ function App() {
       )}
       <Navbar setIsOpen={setIsOpen} darkMode={darkMode} setDarkMode={setDarkMode} />
 
-      <Routes>
-        <Route path="/" element={<Content />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <PostsProvider>
+        <Routes>
+          <Route path="/" element={<Content />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </PostsProvider>
     </div>
   );
 }
