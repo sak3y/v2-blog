@@ -4,6 +4,8 @@ import { FiMenu } from "react-icons/fi";
 import { IoIosSearch } from "react-icons/io";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
+import SearchBar from "./searchBar";
+
 type NavProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   darkMode: boolean;
@@ -11,7 +13,6 @@ type NavProps = {
 };
 
 const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
-  const [input, setInput] = useState<string>("");
   const [isSearching, setIsSearching] = useState<boolean>(false);
 
   // Toggle dark theme
@@ -19,17 +20,13 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
     document.documentElement.classList.toggle("dark", darkMode);
   }, [darkMode]);
 
-  const handleSearch = () => {};
-
-  handleSearch();
-
   return (
     <header
       className={
         "fixed z-3 bg-white dark:bg-zinc-900 flex min-w-screen justify-center p-3 border-b-1 border-zinc-300 dark:border-zinc-700"
       }
     >
-      <nav className="flex min-w-[80vw] justify-between text-lg">
+      <nav className="flex min-w-[80vw] justify-between text-xl">
         {/* Nav left */}
         <div className="flex items-center">
           <button
@@ -37,7 +34,7 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
               setIsOpen(true);
             }}
           >
-            <FiMenu size={16} />
+            <FiMenu size={18} />
           </button>
         </div>
 
@@ -49,20 +46,7 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
               <IoIosSearch />
             </button>
             {/* Input element */}
-            {isSearching && (
-              <input
-                name="search"
-                type="text"
-                placeholder="Search..."
-                autoFocus
-                autoComplete="off"
-                value={input}
-                onChange={(e) => {
-                  setInput(e.target.value);
-                }}
-                className="text-sm font-sans w-25 sm:w-50 px-1 border-1 focus:rounded-bl-none outline-0"
-              />
-            )}
+            {isSearching && <SearchBar />}
           </li>
           <li>
             <a target="_blank" href="https://www.linkedin.com/in/sheikh-rayhan-ahmed">
