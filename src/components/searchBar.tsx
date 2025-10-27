@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "../hooks/useQuery";
 
-const SearchBar = () => {
-  const { query, setQuery } = useQuery();
+const SearchBar = ({ isSearching }: { isSearching: boolean }) => {
+  const { query, setQuery } = useQuery(); // Query hooks that holds user's input
   const navigate = useNavigate(); // Allows user to redirect
 
   const handleSearch = (e: React.FormEvent) => {
@@ -13,7 +13,7 @@ const SearchBar = () => {
     navigate(`/search?q=${encodeURIComponent(query)}`);
   };
   return (
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleSearch} className="flex items-center">
       <input
         name="search"
         type="text"
@@ -24,7 +24,11 @@ const SearchBar = () => {
         onChange={(e) => {
           setQuery(e.target.value);
         }}
-        className="text-sm font-sans w-25 sm:w-50 px-1 border-1 focus:rounded-bl-none outline-0"
+        className={`placeholder:text-zinc-500 text-sm font-sans border px-2 focus:outline-none
+    transform origin-left transition-all duration-300 
+    ${
+      isSearching ? "scale-x-100 w-28 sm:w-52 border" : "scale-x-0 w-0 border-0 pointer-events-none"
+    }`}
       />
     </form>
   );

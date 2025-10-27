@@ -1,13 +1,28 @@
 @import "tailwindcss";
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 html.dark {
-  background-color: #18181B;
+  background-color: #18181b;
 }
 
 button {
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+.nav-child {
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 10px 24px;
+  transition: all 0.1s ease-in-out;
+  box-sizing: 0 4px 2px black;
+}
+
+.nav-child:hover {
+  background: #2b8963;
+}
+
+.dark .nav-child:hover {
+  background: #bfdbfe;
 }

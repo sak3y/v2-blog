@@ -40,14 +40,7 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
 
         {/* Nav right */}
         <ul className="flex items-center gap-4 h-8">
-          <li className="relative flex items-center gap-2">
-            {/* Search button */}
-            <button onClick={() => setIsSearching((prev) => !prev)} className="">
-              <IoIosSearch />
-            </button>
-            {/* Input element */}
-            {isSearching && <SearchBar />}
-          </li>
+          
           <li>
             <a target="_blank" href="https://www.linkedin.com/in/sheikh-rayhan-ahmed">
               <FaLinkedin />
@@ -62,6 +55,14 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
             <button onClick={() => setDarkMode((prev) => !prev)}>
               {darkMode ? <MdLightMode /> : <MdDarkMode />}
             </button>
+          </li>
+          <li className="relative flex items-center gap-2">
+            {/* Search button */}
+            <button onClick={() => setIsSearching((prev) => !prev)}>
+              <IoIosSearch />
+            </button>
+            {/* Input element */}
+            <SearchBar isSearching={isSearching}/>
           </li>
         </ul>
       </nav>

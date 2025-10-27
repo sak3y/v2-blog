@@ -6,14 +6,18 @@ type MenuProp = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const Sidebar: React.FC<MenuProp> = ({ setIsOpen }) => {
+const Sidebar: React.FC<MenuProp> = ({ isOpen, setIsOpen }) => {
   return (
-    <aside className="fixed left-0 top-0 z-5 sm:w-50 w-[40vw] font-sans sm:text-xl bg-blue-400 dark:bg-emerald-900 h-screen">
-
+    <aside
+      aria-hidden={!open}
+      className={`fixed left-0 top-0 z-5 sm:w-50 w-[40vw] text-white dark:text-black bg-emerald-900 dark:bg-blue-300 h-screen duration-150 ${
+        isOpen ? "translate-x-0" : "-translate-x-100"
+      }`}
+    >
       <div className="">
         {/* Close Menu Button */}
         <button
-          className="m-4"
+          className="p-2 m-2 text-white duration-150"
           onClick={() => {
             setIsOpen(false);
           }}
@@ -22,18 +26,18 @@ const Sidebar: React.FC<MenuProp> = ({ setIsOpen }) => {
         </button>
 
         {/* Links */}
-        <div className="flex flex-col items-center">
+        <div className="grid">
           {/* Home page */}
-          <Link to="/" tabIndex={0}>
+          <Link to="/" className="nav-child" tabIndex={0}>
             Blog
           </Link>
           {/* About page  */}
-          <Link to="/about" tabIndex={0}>
+          <Link to="/about" className="nav-child" tabIndex={0}>
             About
           </Link>
           {/* Contacts page */}
-          <Link to="/contact" tabIndex={0}>
-            Contacts
+          <Link to="/contact" className="nav-child" tabIndex={0}>
+            Contact
           </Link>
         </div>
       </div>
