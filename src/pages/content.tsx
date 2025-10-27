@@ -8,7 +8,7 @@ const Content = () => {
   if (!posts) return <div className="text-center mt-20">Loading...</div>;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-cente mb-10">
       <header className="font-extrabold mt-30 mb-10 text-center">
         <h1 className="text-4xl tracking-tight">Rayhan's Blog</h1>
         <div className="text-xl mt-6">{posts.length} Posts</div>

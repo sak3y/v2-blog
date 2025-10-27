@@ -24,5 +24,86 @@ button {
 }
 
 .dark .nav-child:hover {
-  background: #bfdbfe;
+  background: rgb(255, 209, 123);;
+}
+
+
+/* AI gen markdown colours below */
+
+/* Base light mode */
+.markdown {
+  line-height: 1.8;
+  color: hsl(221, 39%, 11%);
+}
+.markdown h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0.75rem 0;
+}
+.markdown h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0.65rem 0;
+}
+.markdown p {
+  margin: 0.5rem 0;
+  color: #374151;
+}
+.markdown a {
+  color: #6366f1;
+  text-decoration: underline;
+}
+.markdown pre {
+  background: #0f172a;
+  color: #e6eef8;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  overflow: auto;
+}
+.markdown code {
+  background: #f3f4f6;
+  padding: 0.12rem 0.4rem;
+  border-radius: 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+}
+.markdown blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  color: #6b7280;
+  font-style: italic;
+  margin: 1rem 0;
+}
+.markdown ul,
+.markdown ol {
+  margin: 0.5rem 0 1rem 1.25rem;
+}
+
+/* Dark mode overrides */
+.dark .markdown {
+  color: #e6e6e6;
+}
+.dark .markdown p {
+  color: #d1d5db; /* lighter text for paragraphs */
+}
+.dark .markdown a {
+  color: #58a6ff;
+}
+.dark .markdown a:hover {
+  color: #79c0ff;
+}
+.dark .markdown pre {
+  background: #161b22;
+  color: #c9d1d9;
+}
+.dark .markdown code {
+  background: #0d1117;
+  color: #ffa657;
+}
+.dark .markdown blockquote {
+  border-left-color: #30363d;
+  color: #8b949e;
+}
+.dark .markdown ul,
+.dark .markdown ol {
+  color: #d1d5db;
 }

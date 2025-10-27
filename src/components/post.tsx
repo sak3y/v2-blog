@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import ReactMarkdown from "react-markdown";
 
 type PostObject = {
   id: string;
@@ -15,9 +16,11 @@ const Post: React.FC<PostObject> = ({ id, title, dateMade, description }) => {
         <Link to={`/posts/${id}`}>{title}</Link>
       </h2>
       {/* // Date post was made */}
-      <div className="tracking-tight text-lg font-semibold scale-y-110 mt-2 mb-6">{dateMade}</div>
+      <div className="tracking-tight font-semibold mt-3 mb-6">{dateMade}</div>
       {/* Short description */}
-      <p className="line-clamp-3 text-lg leading-tight">{description}</p>
+      <div className="line-clamp-3 leading-tight markdown">
+        <ReactMarkdown>{description}</ReactMarkdown>
+      </div>
     </article>
   );
 };

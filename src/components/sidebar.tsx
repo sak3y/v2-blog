@@ -10,11 +10,11 @@ const Sidebar: React.FC<MenuProp> = ({ isOpen, setIsOpen }) => {
   return (
     <aside
       aria-hidden={!open}
-      className={`fixed left-0 top-0 z-5 sm:w-50 w-[40vw] text-white dark:text-black bg-emerald-900 dark:bg-blue-300 h-screen duration-150 ${
+      className={`fixed left-0 top-0 z-5 sm:w-50 w-[40vw] text-white dark:text-zinc-950 bg-emerald-900 dark:bg-orange-300 h-screen duration-150 ${
         isOpen ? "translate-x-0" : "-translate-x-100"
       }`}
     >
-      <div className="">
+      <div>
         {/* Close Menu Button */}
         <button
           className="p-2 m-2 text-white duration-150"

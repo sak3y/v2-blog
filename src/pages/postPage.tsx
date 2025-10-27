@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown";
+
 import { useParams } from "react-router-dom";
 import { usePosts } from "../hooks/usePosts";
 
@@ -16,7 +18,10 @@ const PostPage = () => {
       <div className="">
         <h1 className="text-5xl font-bold mb-4">{post.title}</h1>
         <p className="text-zinc-500 dark:text-zinc-400 mb-6">{post.dateMade}</p>
-        <p className="leading-relaxed">{post.description}</p>
+
+        <div className="markdown">
+          <ReactMarkdown>{post.description}</ReactMarkdown>
+        </div>
       </div>
       <Footer />
     </div>
