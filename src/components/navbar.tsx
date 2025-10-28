@@ -40,7 +40,6 @@ const Navbar: React.FC<NavProps> = ({ setIsOpen, darkMode, setDarkMode }) => {
 
         {/* Nav right */}
         <ul className="flex items-center gap-4 h-8">
-          
           <li>
             <a target="_blank" href="https://www.linkedin.com/in/sheikh-rayhan-ahmed">
               <FaLinkedin />
