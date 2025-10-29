@@ -17,5 +17,7 @@ A place where I share my controversial thoughts, my experiences or general tech 
 ## Video 🎥 (coming soon)
 
 
+https://github.com/user-attachments/assets/73aac9ef-181d-462f-b3f0-69ca86ddba44
+
 
 ##### © 2025 Sheikh Ahmed. All rights reserved.
